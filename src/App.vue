@@ -1,32 +1,43 @@
 <template>
-<div id="app" v-bind:title="name">
-    <!-- <comp></comp> -->
+<div id="app">
+    <comp v-on:my-event='oncom'></comp>
     <img src="./assets/logo.png">
 <div>
   <button v-on:click="additem">增加数据</button>
 </div>
     <!-- <router-view/> -->
     <a v-for="(item , index) in list" v-text="index+'  --------  '+item.price+'   ,   '" :key="item.name"></a>
-    <p>
-      <a v-bind:href="link">跳转</a>
-    </p>
-    <p v-if="table"> app1 </p>
-    <p v-show="!table"> app2 </p>
     <button v-on:click="toggle">切换</button>
+    <p>
+      <input v-on:keydown.enter="onkey" v-model="keyvalue">
+    </p>
+    <div>
+      <input type="checkbox" value="css" v-model="cheked" @click="bindtap">
+      <input type="checkbox" value="js" v-model="cheked">
+      <input type="checkbox" value="html" v-model="cheked">
+    </div>
+    <div>
+      <input type="radio" value="css" v-model="radio_data" @click="bindtap">
+      <input type="radio" value="js" v-model="radio_data">
+      <input type="radio" value="html" v-model="radio_data">
+    </div>
+    <div v-for="(item , index) in selected" :key="item.name" >
+      <input type="radio" value="item.name" v-model="radio_data">
+      {{ item.name }}
+    </div>
 </div>
 
 </template>
 
 <script>
-// import comp from './a.vue'
+import comp from './a.vue'
 export default {
-  // components: {
-  //   comp
-  // },
+  components: {
+    comp
+  },
   data: function () {
     return {
-      table: true,
-      link: 'http://www.xiaowuasy.xin',
+      keyvalue: '',
       list: [
         {
           name: '1',
@@ -39,6 +50,22 @@ export default {
         {
           name: '3',
           price: '3'
+        }
+      ],
+      cheked: ['css'],
+      radio_data: 'css',
+      selected: [
+        {
+          name: 'js',
+          value: 1
+        },
+        {
+          name: 'css',
+          value: 2
+        },
+        {
+          name: 'html',
+          value: 3
         }
       ]
     }
@@ -53,6 +80,16 @@ export default {
     toggle () {
       this.table = !this.table
       console.log(this.table)
+    },
+    onkey () {
+      console.log(this.keyvalue)
+    },
+    oncom (e) {
+      console.log(e)
+    },
+    bindtap () {
+      console.log(this.cheked)
+      console.log(this.radio_data)
     }
   }
 }
@@ -66,5 +103,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+img{
+  width: 40px;
+  height: 40px;
 }
 </style>
