@@ -21,7 +21,7 @@
       <input type="radio" value="js" v-model="radio_data">
       <input type="radio" value="html" v-model="radio_data">
     </div>
-    <div v-for="(item , index) in selected" :key="item.name" >
+    <div v-for="item in selected" :key="item.name" >
       <input type="radio" value="item.name" v-model="radio_data">
       {{ item.name }}
     </div>
