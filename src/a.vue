@@ -3,10 +3,9 @@
       {{ name }}
       {{ number }}
       {{ myvalue }}
-      <button @click='emitMy'>emit</button>
+      <button @click='emitMy'>来自a</button>
       <slot name="header"></slot>     <!-- 给slot元素指定一个name后可以分发多个内容slot -->
-      <p><slot> 没有数据 </slot></p>
-      <slot name="footer"></slot>
+      <p><slot> 没有数据 </slot></p>   <!-- slot里面是当没有数据的时候使用的备用内容 -->
   </div>
 </template>
 

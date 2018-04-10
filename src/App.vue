@@ -1,13 +1,12 @@
 <template>
 <div id="app">
     <input type="text" v-model="myvalue">
-    <comp v-on:my-event='oncom' number="78" v-bind:myvalue="myvalue">
+    <compa v-on:my-event='oncom' number="78" v-bind:myvalue="myvalue">
       <h2 slot="header">标题</h2>
       <p>正文内容</p>
       <p>更多正文内容</p>
-      <div slot="footer">底部信息</div>
-    </comp>   <!-- 使用v-model来将标签内容传递到组件 -->
-    <p :is="comp" number="75"></p>    <!-- is也可以实现渲染 不同组件-->
+    </compa>   <!-- 使用v-model来将标签内容传递到组件 -->
+    <p :is="compa" number="75">这是is模块</p>    <!-- is也可以实现渲染 不同组件-->
     <img src="./assets/logo.png">
 <div>
   <button v-on:click="additem">增加数据</button>
@@ -32,20 +31,27 @@
       <input type="radio" value="item.name" v-model="radio_data">
       {{ item.name }}
     </div>
+    <comp></comp>
+    <compc></compc>
 </div>
-
 </template>
 
 <script>
-import comp from './a.vue'
+import compa from './a.vue'
+// import compb from './b.vue'
+import comp from './b.vue'
+import compc from './c.vue'
+
 export default {
   components: {
-    comp: comp
+    compa: compa,
+    comp: comp,
+    compc: compc
   },
   data: function () {
     return {
       myvalue: ' ',
-      comp: 'comp',
+      compa: 'compa',
       keyvalue: '',
       list: [
         {
