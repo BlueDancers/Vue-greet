@@ -1,6 +1,13 @@
 <template>
 <div id="app">
-    <comp v-on:my-event='oncom'></comp>
+    <input type="text" v-model="myvalue">
+    <comp v-on:my-event='oncom' number="78" v-bind:myvalue="myvalue">
+      <h2 slot="header">标题</h2>
+      <p>正文内容</p>
+      <p>更多正文内容</p>
+      <div slot="footer">底部信息</div>
+    </comp>   <!-- 使用v-model来将标签内容传递到组件 -->
+    <p :is="comp" number="75"></p>    <!-- is也可以实现渲染 不同组件-->
     <img src="./assets/logo.png">
 <div>
   <button v-on:click="additem">增加数据</button>
@@ -33,10 +40,12 @@
 import comp from './a.vue'
 export default {
   components: {
-    comp
+    comp: comp
   },
   data: function () {
     return {
+      myvalue: ' ',
+      comp: 'comp',
       keyvalue: '',
       list: [
         {
