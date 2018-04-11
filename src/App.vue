@@ -1,17 +1,23 @@
 <template>
 <div id="app">
+    <router-view/>
+    <div>
+      <router-link :to="{ path: '/first'}" tag="li">to first</router-link>
+      <router-link :to="{ path: '/two/one', param :{color:'oneone'}}">to two</router-link>
+    </div>
     <input type="text" v-model="myvalue">
-    <compa v-on:my-event='oncom' number="78" v-bind:myvalue="myvalue">
+    <div>
+      <img src="./assets/logo.png">
+    </div>
+     <compa v-on:my-event='oncom' number="78" v-bind:myvalue="myvalue">
       <h2 slot="header">标题</h2>
-      <p>正文内容</p>
-      <p>更多正文内容</p>
+      <a>正文内容</a>
+      <a>更多正文内容</a>
     </compa>   <!-- 使用v-model来将标签内容传递到组件 -->
     <p :is="compa" number="75">这是is模块</p>    <!-- is也可以实现渲染 不同组件-->
-    <img src="./assets/logo.png">
-<div>
-  <button v-on:click="additem">增加数据</button>
-</div>
-    <!-- <router-view/> -->
+    <div>
+      <button v-on:click="additem">增加数据</button>
+    </div>
     <a v-for="(item , index) in list" v-text="index+'  --------  '+item.price+'   ,   '" :key="item.name"></a>
     <button v-on:click="toggle">切换</button>
     <p>
@@ -28,7 +34,7 @@
       <input type="radio" value="html" v-model="radio_data">
     </div>
     <div v-for="item in selected" :key="item.name" >
-      <input type="radio" value="item.name" v-model="radio_data">
+      <input type="radio" :value="item.name" v-model="selected_data" v-on:click="selected_score">
       {{ item.name }}
     </div>
     <comp></comp>
@@ -38,7 +44,6 @@
 
 <script>
 import compa from './a.vue'
-// import compb from './b.vue'
 import comp from './b.vue'
 import compc from './c.vue'
 
@@ -49,6 +54,7 @@ export default {
     compc: compc
   },
   data: function () {
+    // data作为组件会被很多次的使用 用函数return的时候会避免被引用后值被改变的原因
     return {
       myvalue: ' ',
       compa: 'compa',
@@ -69,6 +75,7 @@ export default {
       ],
       cheked: ['css'],
       radio_data: 'css',
+      selected_data: 'css',
       selected: [
         {
           name: 'js',
@@ -105,6 +112,9 @@ export default {
     bindtap () {
       console.log(this.cheked)
       console.log(this.radio_data)
+    },
+    selected_score () {
+      console.log(this.selected_data)
     }
   }
 }

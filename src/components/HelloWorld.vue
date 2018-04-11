@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
+    <h2>必不可少的</h2>
     <ul>
       <li>
         <a
@@ -45,7 +45,7 @@
         </a>
       </li>
     </ul>
-    <h2>Ecosystem</h2>
+    <h2>Vue 生态系统</h2>
     <ul>
       <li>
         <a
@@ -88,7 +88,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: '这里是Vue route的功能'
     }
   }
 }
