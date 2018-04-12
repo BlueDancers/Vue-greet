@@ -1,9 +1,13 @@
 <template>
 <div id="app">
-    <router-view/>
+    <keep-alive>
+      <!-- 会将路由切换的数据进行缓存 -->
+      <router-view/>
+    </keep-alive>
+    {{ totalPrice }}
     <div>
-      <router-link :to="{ path: '/first'}" tag="li">to first</router-link>
-      <router-link :to="{ path: '/two/one', param :{color:'oneone'}}">to two</router-link>
+      <router-link :to="{ path: '/two/one/one'}" tag="li">to first</router-link>
+      <router-link :to="{ path: '/two/one'}" tag="li">to two</router-link>
     </div>
     <input type="text" v-model="myvalue">
     <div>
@@ -52,6 +56,11 @@ export default {
     compa: compa,
     comp: comp,
     compc: compc
+  },
+  computed: {
+     totalPrice () {
+      return this.$store.state.totalPrice
+    } 
   },
   data: function () {
     // data作为组件会被很多次的使用 用函数return的时候会避免被引用后值被改变的原因

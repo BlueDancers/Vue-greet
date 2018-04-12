@@ -33,7 +33,6 @@ export default {
 /* v-enter-active 与v-leave-active 是动画的过渡过程*/
 .score-enter {
   /* transform: translateY(500px); */
-  opacity: 0;
 }
 .score-leave-active {
   /* transform: translateY(-500px); */

@@ -1,6 +1,7 @@
 <template>
     <div>
-        <p>这是页面{{ one }}</p>
+        <p>这是vuex的值{{ name }}</p>
+        <button @click="data">按钮</button>
     </div>
 </template>
 
@@ -8,7 +9,12 @@
 export default {
   data () {
     return {
-      one: 'one.vue'
+      name: 'one'
+    }
+  },
+  methods: {
+    data () {
+      this.$store.commit('increment',5)
     }
   }
 }

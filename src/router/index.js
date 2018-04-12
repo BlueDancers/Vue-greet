@@ -6,9 +6,14 @@ import one from '@/components/one'
 
 Vue.use(Router)
 
+
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      redirect: '/first'
+    },
     {
       path: '/first',
       name: 'HelloWorld',
