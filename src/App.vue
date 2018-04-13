@@ -58,9 +58,9 @@ export default {
     compc: compc
   },
   computed: {
-     totalPrice () {
-      return this.$store.state.totalPrice
-    } 
+    totalPrice () {
+      return this.$store.getters.gettotal
+    }
   },
   data: function () {
     // data作为组件会被很多次的使用 用函数return的时候会避免被引用后值被改变的原因

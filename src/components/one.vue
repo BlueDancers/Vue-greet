@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>这是vuex的值{{ name }}</p>
-        <button @click="data">按钮</button>
+        <button @click="data">加5</button>
     </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     data () {
-      this.$store.commit('increment',5)
+      this.$store.dispatch('increase', 5)
     }
   }
 }

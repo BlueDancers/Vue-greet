@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     bind () {
-      this.$store.commit('increment',1)
+      this.$store.commit('increment', 1)
       console.log(this.$store.state.totalPrice)
     }
   }
