@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import login from '../pages/one'
 import register from '../pages/two'
 import index from '../pages/index'
-
+import resource from 'vue-resource'
+Vue.use(resource)
 Vue.use(Router)
 
 export default new Router({
@@ -11,7 +12,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      naem: 'index',
+      name: 'index',
       component: index
     },
     {
