@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import Layout from '@/components/Layout'
 import router from './router'
+import resource from 'vue-resource'
 
 Vue.config.productionTip = false
 
@@ -10,6 +11,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  resource,
   components: { Layout },
   template: '<Layout/>'
 })

@@ -53,6 +53,14 @@
 <script>
 import slideShow from '../components/slideShow'
 export default {
+  created: function () {
+    this.$http.get('getList', {userid: 1})
+      .then((data) => {
+        console.log(data)
+      }, () => {
+        console.log('这里是用了vue-source,后端没有接口')
+      })
+  },
   components: {
     slideShow
   },
