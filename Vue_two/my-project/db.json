@@ -1,0 +1,54 @@
+{
+  "PClist": [
+    {
+      "text": "数据统计",
+      "link": "#",
+      "hot": true
+    },
+    {
+      "text": "数据检测",
+      "link": "#",
+      "hot": true
+    },
+    {
+      "text": "流量分析",
+      "link": "#",
+      "hot": true
+    },
+    {
+      "text": "广告发布",
+      "link": "#",
+      "hot": false
+    }
+  ],
+  "imglist": [
+    {
+        "id": "1",
+        "img": "require('../assets/images/1.png')",
+        "title": "'开放产品'",
+        "explain": "'开放产品是一款开放产品",
+        "link": "#"
+      },
+      {
+        "id": "2",
+        "img": "require('../assets/images/2.png')",
+        "title": "品牌营销",
+        "explain": "品牌营销帮助你的产品更好的找到定位'",
+        "link": "#"
+      },
+      {
+        "id": "3",
+        "img": "require('../assets/images/3.png')",
+        "title": "使命必达",
+        "explain": "使命必达快速迭代永远保持最前端的速度",
+        "link": "#"
+      },
+      {
+        "id": "4",
+        "img": "require('../assets/images/4.png')",
+        "title": "勇攀高峰",
+        "explain": "帮你勇闯高峰,达到事业的顶端",
+        "link": "#"
+      }
+    ]
+}

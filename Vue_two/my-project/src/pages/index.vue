@@ -54,9 +54,9 @@
 import slideShow from '../components/slideShow'
 export default {
   created: function () {
-    this.$http.get('getList', {userid: 1})
+    this.$http.get('http://localhost:3003/PClist')
       .then((data) => {
-        console.log(data)
+        this.PClist = data.data
       }, () => {
         console.log('这里是用了vue-source,后端没有接口')
       })
@@ -66,28 +66,7 @@ export default {
   },
   data () {
     return {
-      PClist: [
-        {
-          text: '数据统计',
-          link: '#',
-          hot: true
-        },
-        {
-          text: '数据检测',
-          link: '#',
-          hot: true
-        },
-        {
-          text: '流量分析',
-          link: '#',
-          hot: true
-        },
-        {
-          text: '广告发布',
-          link: '#',
-          hot: false
-        }
-      ],
+      PClist: [],
       imglist: [
         {
           id: 1,
