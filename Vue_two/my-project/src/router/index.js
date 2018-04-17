@@ -4,6 +4,7 @@ import login from '../pages/one'
 import register from '../pages/two'
 import index from '../pages/index'
 import resource from 'vue-resource'
+import other from '../pages/other'
 Vue.use(resource)
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/register',
       name: '/register',
       component: register
+    },
+    {
+      path: '/other',
+      name: 'other',
+      component: other
     }
   ]
 })

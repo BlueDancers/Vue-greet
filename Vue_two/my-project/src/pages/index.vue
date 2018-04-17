@@ -28,14 +28,17 @@
         </div>
         <div class="index_left_bottom">
           <p class="index_p_class">最新消息</p>
-           <p></p>
-           <p></p>
-           <p></p>
-           <p></p>
+           <ul>
+               <div v-for="item in getNowList" :key="item.id" class="index_left_PClist">
+                   <li :href="item.url" class="index_a new_item">
+                    {{ item.title }}
+                   </li>
+               </div>
+           </ul>
         </div>
     </div>
     <div class="index-right">
-      <slide-show></slide-show>
+      <slide-show :slides="slides"></slide-show>
         <div class="index_bottom">
             <div v-for="list in imglist" :key="list.img" class="index_bottom_list" :class="list.id==1 || list.id==3?'index_bottom_list_1':''">
                 <img :src="list.img" alt="图片">
@@ -60,6 +63,12 @@ export default {
       }, () => {
         console.log('这里是用了vue-source,后端没有接口')
       })
+    this.$http.get('http://localhost:3003/getNowList')
+      .then((data) => {
+        this.getNowList = data.data
+      }, () => {
+        console.log('失败')
+      })
   },
   components: {
     slideShow
@@ -67,6 +76,7 @@ export default {
   data () {
     return {
       PClist: [],
+      getNowList: [],
       imglist: [
         {
           id: 1,
@@ -96,6 +106,28 @@ export default {
           explain: '帮你勇闯高峰,达到事业的顶端',
           link: '#'
         }
+      ],
+      slides: [
+        {
+          src: require('../assets/slideShow/pic1.jpg'),
+          title: 'xxx1',
+          href: 'detail/analysis'
+        },
+        {
+          src: require('../assets/slideShow/pic2.jpg'),
+          title: 'xxx1',
+          href: 'detail/count'
+        },
+        {
+          src: require('../assets/slideShow/pic3.jpg'),
+          title: 'xxx1',
+          href: 'www.xiaowuasy.xin'
+        },
+        {
+          src: require('../assets/slideShow/pic4.jpg'),
+          title: 'xxx1',
+          href: 'www.baidu.com'
+        }
       ]
     }
   }
@@ -117,7 +149,8 @@ export default {
     width: 900px;
     height: 400px;
     position: relative;
-    left: 20%;
+    left: 200px;
+    margin-top: 20px;
 }
 .index_p_class {
     background: #4fc08d;
@@ -156,6 +189,7 @@ export default {
     font-weight: bold;
     padding-right: 160px;
     padding-top: 10px;
+    white-space: nowrap;
 }
 .index_left_top_ip{
     font-weight: bold;
@@ -208,5 +242,11 @@ export default {
     background:#4fc08d;
     color: white;
 }
-
+.new_item {
+    display: inline-block;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 </style>

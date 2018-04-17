@@ -12,7 +12,7 @@
              <li class="nav_pile">|</li>
              <router-link :to="{path: '/register'}" tag="li">注册</router-link>
              <li class="nav_pile">|</li>
-             <li>关于</li>
+             <router-link :to="{path: '/other'}" tag="li">关于</router-link>
            </ul>
          </div>
       </div>
