@@ -1,11 +1,19 @@
 <template>
   <div>
-    <div class="dialog_wrap">
+    <div class="dialog_wrap" v-if="show"  @click="aaaaaaaaaaa">
       <div class="dialog_cover"></div>
       <div class="dialog_content">
-        <p class="dialog_close">X</p>
+        <p class="dialog_close" @click="colse">X</p>
         <div class="total">
-            hello
+            <div v-if="onshow == '1'">
+              <slot name="login">没有数据</slot>
+            </div>
+            <div v-if="onshow == '2'">
+              <slot name="register">没有数据</slot>
+            </div>
+            <div v-if="onshow == '3'">
+              <slot name="about">没有数据</slot>
+            </div>
           </div>
       </div>
     </div>
@@ -14,7 +22,26 @@
 
 <script>
 export default {
-
+  props: {
+    show: {
+      type: Boolean
+    },
+    onshow: {
+      type: Number
+    }
+  },
+  data () {
+    return {
+    }
+  },
+  methods: {
+    colse () {
+      this.$emit('on-close')
+    },
+    aaaaaaaaaaa () {
+      console.log(this.onshow)
+    }
+  }
 }
 </script>
 
@@ -48,5 +75,10 @@ export default {
   top: 12%;
   color: #454545;
   z-index: 100;
+  cursor: pointer;
 }
+.dialog_close:hover {
+  color: red;
+}
+
 </style>

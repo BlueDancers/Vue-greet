@@ -8,11 +8,11 @@
         </router-link>
          <div class="header_nav">
            <ul class="nav_list">
-             <router-link :to='{path: "/login"}'  tag="li">登录</router-link>
+             <li @click="show(1)">登录</li>
              <li class="nav_pile">|</li>
-             <router-link :to="{path: '/register'}" tag="li">注册</router-link>
+             <li @click="show(2)">注册</li>
              <li class="nav_pile">|</li>
-             <router-link :to="{path: '/other'}" tag="li">关于</router-link>
+             <li @click="show(3)">关于</li>
            </ul>
          </div>
       </div>
@@ -25,7 +25,17 @@
     <div class="app_footer">
       <p> 2018 fishenal MIT </p>
     </div>
-    <mydialog></mydialog>
+    <mydialog :show="isShow" @on-close="closeprompt" :onshow="tab">
+      <div slot="login">
+        <p>这里是login</p>
+      </div>
+      <div slot="register">
+        <p>这里是注册</p>
+      </div>
+      <div slot="about">
+        <p>这里是关于</p>
+      </div>
+    </mydialog>
   </div>
 </template>
 
@@ -34,6 +44,22 @@ import mydialog from './base/dialog'
 export default {
   components: {
     mydialog
+  },
+  data () {
+    return {
+      isShow: false,
+      tab: 1
+    }
+  },
+  methods: {
+    show (index) {
+      console.log(index)
+      this.tab = index
+      this.isShow = true
+    },
+    closeprompt () {
+      this.isShow = false
+    }
   }
 }
 </script>
@@ -107,7 +133,7 @@ table {
 }
 .nav_list li {
   padding:0 10px 0 10px;
-
+  cursor: pointer;
 }
 .app_header_inner img{
   width: 50px;

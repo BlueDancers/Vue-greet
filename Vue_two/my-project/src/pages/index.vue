@@ -74,8 +74,8 @@ export default {
     slideShow
   },
   methods: {
-    onchange () {
-      console.log('data')
+    onchange (data) {
+      console.log(data)
     }
   },
   data () {
