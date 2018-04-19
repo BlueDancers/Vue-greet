@@ -2,7 +2,14 @@
   <div id="silde_show"  @mouseover="clearInv" @mouseout="runInv">
     <div class="slide_img">
       <a href="slides[index].title">
-        <img :src="slides[newindex].src" alt="轮播图" title="这是轮播图">
+          <transition name="slide-trans">
+            <img :src="slides[newindex].src" v-if="isShow" alt="轮播图" title="这是轮播图">
+          </transition>
+      </a>
+       <a href="slides[index].title">
+          <transition name="slide-trans-old">
+            <img :src="slides[newindex].src" v-if="!isShow" alt="轮播图" title="这是轮播图">
+          </transition>
       </a>
     </div>
     <h2>{{ slides[newindex].title }}</h2>
@@ -28,7 +35,8 @@ export default {
   },
   data () {
     return {
-      newindex: 0
+      newindex: 0,
+      isShow: true
     }
   },
   computed: {
@@ -49,13 +57,18 @@ export default {
   },
   methods: {
     goto (index) {
-      console.log(this)
-      this.newindex = index
+      this.isShow = false
+      setTimeout(() => {
+        this.newindex = index
+        this.isShow = true
+        this.$emit('onchange', index)
+      }, 10)
     },
     runInv () {
       this.invId = setInterval(() => {
         this.goto(this.nextIndex)
       }, this.inv)
+      console.log(this.invId)
     },
     clearInv () {
       clearInterval(this.invId)
@@ -123,4 +136,15 @@ export default {
 .on {
   background: red;
 }
+.slide-trans-enter-active {
+  transition: all 1s;
+}
+.slide-trans-enter {
+  transform: translateX(1800px);
+}
+.slide-trans-old-leave-active {
+  transition: all 1s;
+  transform: translateX(-1800px);
+}
+
 </style>

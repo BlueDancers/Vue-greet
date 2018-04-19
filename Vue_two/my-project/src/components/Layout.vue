@@ -25,12 +25,16 @@
     <div class="app_footer">
       <p> 2018 fishenal MIT </p>
     </div>
+    <mydialog></mydialog>
   </div>
 </template>
 
 <script>
+import mydialog from './base/dialog'
 export default {
-  name: 'App'
+  components: {
+    mydialog
+  }
 }
 </script>
 

@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="index-right">
-      <slide-show :slides="slides" :inv="inv"></slide-show>
+      <slide-show :slides="slides" :inv="inv" @onchange="onchange"></slide-show>
         <div class="index_bottom">
             <div v-for="list in imglist" :key="list.img" class="index_bottom_list" :class="list.id==1 || list.id==3?'index_bottom_list_1':''">
                 <img :src="list.img" alt="图片">
@@ -73,9 +73,14 @@ export default {
   components: {
     slideShow
   },
+  methods: {
+    onchange () {
+      console.log('data')
+    }
+  },
   data () {
     return {
-      inv: '1000',
+      inv: 2000,
       PClist: [],
       getNowList: [],
       imglist: [
