@@ -1,17 +1,17 @@
 <template>
-  <div id="silde_show">
+  <div id="silde_show"  @mouseover="clearInv" @mouseout="runInv">
     <div class="slide_img">
-      <a href="xxxx">
-        <img :src="slides[index].src" alt="轮播图" title="这是轮播图">
+      <a href="slides[index].title">
+        <img :src="slides[newindex].src" alt="轮播图" title="这是轮播图">
       </a>
     </div>
-    <h2>title</h2>
+    <h2>{{ slides[newindex].title }}</h2>
     <ul class="silde_pages">
-      <li @click="goto(one)">&lt;</li>
-      <li v-for="(item, index) in slides" :key="item.src">
+      <li @click="goto(prevIndex)">&lt;</li>
+      <li v-for="(item, index) in slides" :key="item.src" :class="{on: index === newindex}">
         <a @click="goto(index)">{{ index+1 }}</a>
       </li>
-      <li @click="goto(two)">&gt;</li>
+      <li @click="goto(nextIndex)">&gt;</li>
     </ul>
   </div>
 </template>
@@ -21,36 +21,48 @@ export default {
   props: {
     slides: {
       type: Array
+    },
+    inv: {
+      type: Number
     }
   },
   data () {
     return {
-      index: 0
+      newindex: 0
     }
   },
   computed: {
-    one () {
-      if (this.index === 0) {
+    prevIndex () {
+      if (this.newindex === 0) {
         return this.slides.length - 1
       } else {
-        return this.index - 1
+        return this.newindex - 1
       }
     },
-    two () {
-      if (this.index === 3) {
+    nextIndex () {
+      if (this.newindex === 3) {
         return 0
       } else {
-        return this.index + 1
+        return this.newindex + 1
       }
     }
   },
   methods: {
     goto (index) {
-      this.index = index
+      console.log(this)
+      this.newindex = index
+    },
+    runInv () {
+      this.invId = setInterval(() => {
+        this.goto(this.nextIndex)
+      }, this.inv)
+    },
+    clearInv () {
+      clearInterval(this.invId)
     }
   },
   mounted () {
-    console.log(this.slides)
+    this.runInv()
   }
 }
 </script>
@@ -96,9 +108,6 @@ export default {
   cursor:pointer;
   padding: 0% 2px 0% 2px;
 }
-.silde_pages li a:hover {
-  color: tomato;
-}
 .silde_pages li:first-child {
   position: relative;
   right: 15px;
@@ -111,5 +120,7 @@ export default {
   color: white;
   text-decoration: none;
 }
-
+.on {
+  background: red;
+}
 </style>

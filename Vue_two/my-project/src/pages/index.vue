@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="index-right">
-      <slide-show :slides="slides"></slide-show>
+      <slide-show :slides="slides" :inv="inv"></slide-show>
         <div class="index_bottom">
             <div v-for="list in imglist" :key="list.img" class="index_bottom_list" :class="list.id==1 || list.id==3?'index_bottom_list_1':''">
                 <img :src="list.img" alt="图片">
@@ -75,6 +75,7 @@ export default {
   },
   data () {
     return {
+      inv: '1000',
       PClist: [],
       getNowList: [],
       imglist: [
@@ -115,17 +116,17 @@ export default {
         },
         {
           src: require('../assets/slideShow/pic2.jpg'),
-          title: 'xxx1',
+          title: 'xxx2',
           href: 'detail/count'
         },
         {
           src: require('../assets/slideShow/pic3.jpg'),
-          title: 'xxx1',
+          title: 'xxx3',
           href: 'www.xiaowuasy.xin'
         },
         {
           src: require('../assets/slideShow/pic4.jpg'),
-          title: 'xxx1',
+          title: 'xxx4',
           href: 'www.baidu.com'
         }
       ]
