@@ -27,13 +27,13 @@
     </div>
     <mydialog :show="isShow" @on-close="closeprompt" :onshow="tab">
       <div slot="login">
-        <p>这里是login</p>
+        <logfrom @gotoregister="gotoregister"></logfrom>
       </div>
       <div slot="register">
-        <p>这里是注册</p>
+        <register></register>
       </div>
       <div slot="about">
-        <p>这里是关于</p>
+        <about></about>
       </div>
     </mydialog>
   </div>
@@ -41,9 +41,15 @@
 
 <script>
 import mydialog from './base/dialog'
+import logfrom from './base/logfrom'
+import register from './base/register'
+import about from './base/about'
 export default {
   components: {
-    mydialog
+    mydialog,
+    logfrom,
+    register,
+    about
   },
   data () {
     return {
@@ -53,12 +59,14 @@ export default {
   },
   methods: {
     show (index) {
-      console.log(index)
       this.tab = index
       this.isShow = true
     },
     closeprompt () {
       this.isShow = false
+    },
+    gotoregister (index) {
+      this.tab = index
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="dialog_wrap" v-if="show"  @click="aaaaaaaaaaa">
+    <div class="dialog_wrap" v-if="show">
       <div class="dialog_cover"></div>
       <div class="dialog_content">
         <p class="dialog_close" @click="colse">X</p>
@@ -38,14 +38,17 @@ export default {
     colse () {
       this.$emit('on-close')
     },
-    aaaaaaaaaaa () {
-      console.log(this.onshow)
+    gotoregister () {
+      console.log('dasdasasd')
     }
   }
 }
 </script>
 
 <style>
+.dialog_wrap {
+  z-index: 1;
+}
 .dialog_cover {
   position: fixed;
   width: 100%;
@@ -57,21 +60,21 @@ export default {
   z-index: 2;
 }
 .dialog_content {
-  width: 50%;
+  width: 30%;
   max-height: 80%;
   min-height: 20%;
   background: white;
   position: fixed;
   z-index: 20;
   top: 10%;
-  left: 25%;
+  left: 35%;
   border: 2px solid #464068;
   overflow: auto
 }
 .dialog_close {
   display: inline-block;
   position: fixed;
-  left: 73%;
+  left: 63.5%;
   top: 12%;
   color: #454545;
   z-index: 100;

@@ -75,7 +75,6 @@ export default {
   },
   methods: {
     onchange (data) {
-      console.log(data)
     }
   },
   data () {

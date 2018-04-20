@@ -68,7 +68,6 @@ export default {
       this.invId = setInterval(() => {
         this.goto(this.nextIndex)
       }, this.inv)
-      console.log(this.invId)
     },
     clearInv () {
       clearInterval(this.invId)
