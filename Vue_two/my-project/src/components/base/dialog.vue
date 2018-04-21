@@ -37,9 +37,6 @@ export default {
   methods: {
     colse () {
       this.$emit('on-close')
-    },
-    gotoregister () {
-      console.log('dasdasasd')
     }
   }
 }

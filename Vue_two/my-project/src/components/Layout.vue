@@ -7,10 +7,16 @@
           <img src="../assets/logo.png">
         </router-link>
          <div class="header_nav">
-           <ul class="nav_list">
+           <ul class="nav_list" v-show="!isuser">
              <li @click="show(1)">登录</li>
              <li class="nav_pile">|</li>
              <li @click="show(2)">注册</li>
+             <li class="nav_pile">|</li>
+             <li @click="show(3)">关于</li>
+           </ul>
+           <ul class="nav_list" v-show="isuser">
+             <li>{{username}}</li>
+             <li @click="closeuser">退出</li>
              <li class="nav_pile">|</li>
              <li @click="show(3)">关于</li>
            </ul>
@@ -27,7 +33,7 @@
     </div>
     <mydialog :show="isShow" @on-close="closeprompt" :onshow="tab">
       <div slot="login">
-        <logfrom @gotoregister="gotoregister"></logfrom>
+        <logfrom @gotoregister="gotoregister" @getuser="getuser"></logfrom>
       </div>
       <div slot="register">
         <register></register>
@@ -54,7 +60,9 @@ export default {
   data () {
     return {
       isShow: false,
-      tab: 1
+      tab: 1,
+      username: '',
+      isuser: false
     }
   },
   methods: {
@@ -67,6 +75,14 @@ export default {
     },
     gotoregister (index) {
       this.tab = index
+    },
+    getuser (index) {
+      this.username = index
+      this.isuser = true
+      this.isShow = false
+    },
+    closeuser () {
+      this.isuser = false
     }
   }
 }
