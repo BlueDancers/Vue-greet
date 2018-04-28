@@ -72,7 +72,7 @@ export default {
       } else {
         this.$http.get('http://localhost:3003/PClist')
           .then((data) => {
-            this.$emit('getuser', this.username)
+            console.log('注册成功')
           }, (error) => {
             console.log(error)
           })

@@ -45,7 +45,7 @@
                 <div class="index_bottom_list_bottom">
                     <p>{{ list.title }}</p> <br>
                     <p>{{ list.explain }}</p> <br>
-                    <a href="">立即购买</a>
+                    <router-link :to="{path:'/buy'}" tag="a">立即购买</router-link>
                 </div>
             </div>
     </div>
