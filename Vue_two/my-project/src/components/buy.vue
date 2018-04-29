@@ -88,4 +88,13 @@ export default {
 .active {
   background-color: #4fc08d
 }
+/* #detail {
+  width: 1200px;
+  margin:20px 0 0 50px;
+  border: 1px solid rgb(93, 93, 145);
+}
+.buy_header {
+  height: 1200px;
+  border: 1px solid red;
+} */
 </style>

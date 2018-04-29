@@ -1,0 +1,38 @@
+#detail {
+  width: 1200px;
+  margin: 20px 0 0 50px;
+}
+
+.buy_header {
+  height: 300px;
+  
+  background-color: white;
+}
+.buy_header_h1 {
+  font-size: 25px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.buy_header_text p {
+  text-align: left;
+  background-color: #4fc08d;
+  padding: 10px 10px;
+  width: 1180px;
+  color: white;
+}
+.table {
+  margin-top: 30px;
+  height: 250px;
+  background-color: white;
+}
+.header_selected {
+  width: 200px;
+  padding: 20px;
+}
+.header_list {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}

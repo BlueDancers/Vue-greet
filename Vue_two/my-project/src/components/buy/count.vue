@@ -1,6 +1,13 @@
 <template>
-  <div>
-    <div class="header">数据统计</div>
+  <div id="detail">
+    <div class="buy_header">
+      <div class="buy_header_h1">
+        数据统计
+      </div>
+      <div class="buy_header_text">
+        说明文字
+      </div>
+    </div>
     <div class="table">这里是表单</div>
   </div>
 </template>
@@ -12,5 +19,6 @@ export default {
 </script>
 
 <style>
+@import url('buy.css');
 
 </style>
