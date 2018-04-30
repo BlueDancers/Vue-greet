@@ -10,7 +10,7 @@
       </ul>
     </div>
     <div>
-      <router-view></router-view>
+      <router-view :ordermunber="ordermunber" :ordername="ordername"></router-view>
     </div>
   </div>
 </template>
@@ -19,6 +19,8 @@
 export default {
   data () {
     return {
+      ordermunber: [1, 2, 3, 4],
+      ordername: ['入门版本', '进阶版本', '使用版本'],
       list: [
         {
           text: '数据统计',

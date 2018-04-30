@@ -28,6 +28,7 @@ export default new Router({
       path: '/buy',
       name: 'buy',
       component: buy,
+      redirect: '/buy/forecast',
       children: [
         {
           path: 'count',

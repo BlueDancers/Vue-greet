@@ -26,6 +26,15 @@
   height: 250px;
   background-color: white;
 }
+.table h2{
+  font-size: 25px;
+  padding-top: 20px;
+}
+.table p {
+  padding: 10px 20px;
+  line-height: 1.5em;
+  text-align: left;
+}
 .header_selected {
   width: 200px;
   padding: 20px;
@@ -36,3 +45,12 @@
   justify-content: space-between;
   padding-bottom: 10px;
 }
+
+.buy_button {
+  text-decoration: none;
+  background: #4fc08d;
+  color: white;
+  border: 1px solid #4fc08d;
+  width: 100px;
+  height: 30px;
+} 
