@@ -46,10 +46,10 @@
 </template>
 
 <script>
-import mydialog from './base/dialog'
-import logfrom from './base/logfrom'
-import register from './base/register'
-import about from './base/about'
+import mydialog from './login_base/dialog'
+import logfrom from './login_base/logfrom'
+import register from './login_base/register'
+import about from './login_base/about'
 export default {
   components: {
     mydialog,

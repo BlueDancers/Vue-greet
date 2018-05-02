@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import slideShow from '../components/slideShow'
+import slideShow from './slideShow'
 export default {
   created: function () {
     this.$http.get('http://localhost:3003/PClist')
@@ -85,28 +85,28 @@ export default {
       imglist: [
         {
           id: 1,
-          img: require('../assets/images/1.png'),
+          img: require('./images/1.png'),
           title: '开放产品',
           explain: '开放产品是一款开放产品',
           link: '#'
         },
         {
           id: 2,
-          img: require('../assets/images/2.png'),
+          img: require('./images/2.png'),
           title: '品牌营销',
           explain: '品牌营销帮助你的产品更好的找到定位',
           link: '#'
         },
         {
           id: 3,
-          img: require('../assets/images/3.png'),
+          img: require('./images/3.png'),
           title: '使命必达',
           explain: '使命必达快速迭代永远保持最前端的速度',
           link: '#'
         },
         {
           id: 4,
-          img: require('../assets/images/4.png'),
+          img: require('./images/4.png'),
           title: '勇攀高峰',
           explain: '帮你勇闯高峰,达到事业的顶端',
           link: '#'
@@ -114,22 +114,22 @@ export default {
       ],
       slides: [
         {
-          src: require('../assets/slideShow/pic1.jpg'),
+          src: require('./slideShow/pic1.jpg'),
           title: 'xxx1',
           href: 'detail/analysis'
         },
         {
-          src: require('../assets/slideShow/pic2.jpg'),
+          src: require('./slideShow/pic2.jpg'),
           title: 'xxx2',
           href: 'detail/count'
         },
         {
-          src: require('../assets/slideShow/pic3.jpg'),
+          src: require('./slideShow/pic3.jpg'),
           title: 'xxx3',
           href: 'www.xiaowuasy.xin'
         },
         {
-          src: require('../assets/slideShow/pic4.jpg'),
+          src: require('./slideShow/pic4.jpg'),
           title: 'xxx4',
           href: 'www.baidu.com'
         }
