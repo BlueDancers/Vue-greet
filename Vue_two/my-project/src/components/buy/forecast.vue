@@ -7,26 +7,38 @@
       <div class="buy_header_text">
       <p>未来，大数据会变得越来越重要，其核心应用预测也会成为互联网行业以及产业变革的重要力量，我们很有必要对数据预测及其分析方法进行全面且深入的了解。在这一点上，《大数据预测》是本很好的读物，适合大数据所有相关行业的人阅读。</p>
       </div>
-      <div class="header_selected">
-        <div class="header_list">
-          <p>购买数量:</p>
-          <select v-model="buy_ordermunber">
-            <option v-for="item in ordermunber" :key="item">{{item}}</option>
-          </select>
+      <div class="header_selecetd_text">
+        <div class="header_text">
+          <div class="header_list">
+            <p>购买数量:</p>
+          </div>
+          <div class="header_list">
+            <p>产品类型:</p>
+          </div>
+          <div class="header_list">
+            <p>有效时间:</p>
+          </div>
+          <div class="header_list">
+            <p>总价:</p>
+          </div>
         </div>
-        <div class="header_list">
-          <p>产品类型:</p>
-          <select v-model="buy_ordername">
-            <option v-for="item in ordername" :key="item">{{item}}</option>
-          </select>
-        </div>
-        <div class="header_list">
-          <p>有效时间:</p>
-          <p>半年</p>
-        </div>
-        <div class="header_list">
-          <p>总价:</p>
-          <p>{{money}}元</p>
+        <div class="header_selecetd">
+          <div class="header_list">
+            <select v-model="buy_ordermunber">
+              <option v-for="item in ordermunber" :key="item">{{item}}</option>
+            </select>
+          </div>
+          <div class="header_list">
+            <select v-model="buy_ordername">
+              <option v-for="item in ordername" :key="item">{{item}}</option>
+            </select>
+          </div>
+          <div class="header_list">
+            <p>半年</p>
+          </div>
+          <div class="header_list">
+            <p>{{money}}元</p>
+          </div>
         </div>
       </div>
       <div>

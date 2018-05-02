@@ -20,11 +20,12 @@
   padding: 10px 10px;
   width: 1180px;
   color: white;
+  min-height: 32px;
 }
 .table {
   margin-top: 30px;
-  height: 250px;
   background-color: white;
+  padding: 40px;
 }
 .table h2{
   font-size: 25px;
@@ -35,9 +36,15 @@
   line-height: 1.5em;
   text-align: left;
 }
-.header_selected {
-  width: 200px;
+.header_selecetd_text {
+  display: flex;
+  width: 400px;
   padding: 20px;
+
+}
+.header_text {
+  line-height: 1.2em;
+  margin-right: 75px;
 }
 .header_list {
   display: flex;
@@ -52,5 +59,46 @@
   color: white;
   border: 1px solid #4fc08d;
   width: 100px;
-  height: 30px;
+  height: 35px;
+  position: relative;
+  bottom: 20px;
+  right: 400px;
 } 
+.sales-board-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sales-board-table th {
+  background: #4fc08d;
+  color: #fff;
+}
+
+.sales-board-table td {
+  border: 1px solid #f0f2f5;
+  padding: 15px;
+}
+.sales-board-des {
+  border-top: 20px solid #f0f2f5;
+  padding: 15px 20px;
+}
+
+.sales-board-des p {
+  line-height: 1.6;
+}
+
+.sales-board-des h2 {
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+.sales-board-des h3 {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 0 10px 0;
+}
+
+.sales-board-des li {
+  padding: 5px 0;
+}
+

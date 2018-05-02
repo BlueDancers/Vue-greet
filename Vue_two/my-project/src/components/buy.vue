@@ -73,7 +73,7 @@ export default {
   background: white;
   padding-top: 20px;
   height: 350px;
-  width: 200px;
+  min-width: 200px;
   border: 1px solid #f2f2f2;
 }
 .header_ul li {
