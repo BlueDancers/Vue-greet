@@ -29,9 +29,10 @@
             </select>
           </div>
           <div class="header_list">
-            <select v-model="buy_ordername">
+            <Vselection></Vselection>
+            <!-- <select v-model="buy_ordername">
               <option v-for="item in ordername" :key="item">{{item}}</option>
-            </select>
+            </select> -->
           </div>
           <div class="header_list">
             <p>半年</p>
@@ -72,7 +73,11 @@
 </template>
 
 <script>
+import Vselection from '../assembly/selection'
 export default {
+  components: {
+    Vselection
+  },
   props: {
     ordermunber: {
       type: Array
