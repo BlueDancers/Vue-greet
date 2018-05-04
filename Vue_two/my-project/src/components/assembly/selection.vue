@@ -1,14 +1,12 @@
 <template>
   <div class="selection-componment">
-    <div class="selection-show">
-      <span>1</span>
+    <div class="selection-show" @click="toggleDrop">
+      <span>{{ selections[newIndex].lable }}</span>
       <div class="arrow"></div>
     </div>
-    <div class="selection-list">
+   <div class="selection-list" v-if="isDrop">
       <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
+        <li v-for="(item, index) in selections" :key="index" @click="choseSelections(index)">{{ item.lable }}</li>
       </ul>
     </div>
   </div>
@@ -16,7 +14,35 @@
 
 <script>
 export default {
-
+  props: {
+    selections: {
+      type: Array,
+      default: () => {
+        return [
+          {
+            lable: 'test',
+            value: 0
+          }
+        ]
+      }
+    }
+  },
+  data () {
+    return {
+      newIndex: 0,
+      isDrop: false
+    }
+  },
+  methods: {
+    toggleDrop () {
+      this.isDrop = !this.isDrop
+    },
+    choseSelections (index) {
+      this.newIndex = index
+      this.isDrop = !this.isDrop
+      this.$emit('newindex', index)
+    }
+  }
 }
 </script>
 
@@ -26,6 +52,7 @@ export default {
   display: inline-block;
 }
 .selection-show {
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
   border: 1px solid #e3e3e3;
   padding: 0 20px 0 10px;
   display: inline-block;
@@ -36,7 +63,7 @@ export default {
   border-radius: 3px;
   background: #fff;
 }
-.selection-show .arrow {
+.arrow {
   display: inline-block;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
@@ -51,10 +78,8 @@ export default {
 .selection-list {
   display: inline-block;
   position: absolute;
-  left: 0;
-  top: 25px;
-  width: 100%;
   background: #fff;
+  width: 85px;
   border-top: 1px solid #e3e3e3;
   border-bottom: 1px solid #e3e3e3;
   z-index: 5;
