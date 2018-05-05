@@ -24,14 +24,13 @@
         </div>
         <div class="header_selecetd">
           <div class="header_list">
-            <select v-model="buy_ordermunber">
-              <option v-for="item in ordermunber" :key="item">{{item}}</option>
-            </select>
+            <counter :max="max" :min="min" @onchange="onchange"></counter>
           </div>
           <div class="header_list">
-            <select v-model="buy_ordername">
+            <mushreansverse :ordernumber="ordernumber"></mushreansverse>
+            <!-- <select v-model="buy_ordername">
               <option v-for="item in ordername" :key="item">{{item}}</option>
-            </select>
+            </select> -->
           </div>
           <div class="header_list">
             <p>半年</p>
@@ -57,7 +56,13 @@
 </template>
 
 <script>
+import counter from '../assembly/counter'
+import mushreansverse from '../assembly/mushreansverse'
 export default {
+  components: {
+    counter,
+    mushreansverse
+  },
   props: {
     ordermunber: {
       type: Array
@@ -69,7 +74,10 @@ export default {
   data () {
     return {
       buy_ordermunber: '1',
-      buy_ordername: '入门版本'
+      buy_ordername: '入门版本',
+      max: 20,
+      min: 0,
+      ordernumber: ['入门版本', '进阶版本', '高级版本']
     }
   },
   computed: {
@@ -86,6 +94,9 @@ export default {
     }
   },
   methods: {
+    onchange (index) {
+      this.buy_ordermunber = index
+    }
   }
 }
 </script>

@@ -24,15 +24,13 @@
         </div>
         <div class="header_selecetd">
           <div class="header_list">
-            <select v-model="buy_ordermunber">
+            <transverse :ordernumber="ordernumber" @onchange="onchange"></transverse>
+            <!-- <select v-model="buy_ordermunber">
               <option v-for="item in ordermunber" :key="item">{{item}}</option>
-            </select>
+            </select> -->
           </div>
           <div class="header_list">
-            <Vselection></Vselection>
-            <!-- <select v-model="buy_ordername">
-              <option v-for="item in ordername" :key="item">{{item}}</option>
-            </select> -->
+            <Vselection :selections="selections" @newindex="newindex"></Vselection>
           </div>
           <div class="header_list">
             <p>半年</p>
@@ -73,10 +71,12 @@
 </template>
 
 <script>
+import transverse from '../assembly/reansverse'
 import Vselection from '../assembly/selection'
 export default {
   components: {
-    Vselection
+    Vselection,
+    transverse
   },
   props: {
     ordermunber: {
@@ -88,16 +88,31 @@ export default {
   },
   data () {
     return {
-      buy_ordermunber: '1',
-      buy_ordername: '入门版本'
+      buy_ordermunber: '0',
+      buy_ordername: '入门版',
+      ordernumber: [1, 2, 3],
+      selections: [
+        {
+          lable: '入门版',
+          value: 0
+        },
+        {
+          lable: '中级版',
+          value: 1
+        },
+        {
+          lable: '高级版',
+          value: 0
+        }
+      ]
     }
   },
   computed: {
     money () {
       var money = 0
-      if (this.buy_ordername === '入门版本') {
+      if (this.buy_ordername === '入门版') {
         money = 500
-      } else if (this.buy_ordername === '进阶版本') {
+      } else if (this.buy_ordername === '中级版') {
         money = 1000
       } else {
         money = 1500
@@ -106,6 +121,13 @@ export default {
     }
   },
   methods: {
+    newindex (index) {
+      this.buy_ordername = this.selections[index].lable
+    },
+    onchange (index) {
+      console.log(index)
+      this.buy_ordermunber = index
+    }
   }
 }
 </script>
