@@ -16,11 +16,13 @@
 }
 .buy_header_text p {
   text-align: left;
-  background-color: #4fc08d;
+  background-color: #f7fcff;
   padding: 10px 10px;
   width: 1180px;
   color: white;
   min-height: 32px;
+  color: #999
+
 }
 .table {
   margin-top: 30px;
