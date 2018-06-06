@@ -57,12 +57,12 @@
 import slideShow from './slideShow'
 export default {
   created: function () {
-    this.$http.get('http://localhost:3003/PClist')
-      .then((data) => {
-        this.PClist = data.data
-      }, () => {
-        console.log('这里是用了vue-source,后端没有接口')
-      })
+    // this.$http.get('http://localhost:3003/PClist')
+    //   .then((data) => {
+    //     this.PClist = data.data
+    //   }, () => {
+    //     console.log('这里是用了vue-source,后端没有接口')
+    //   })
     this.$http.get('http://localhost:3003/getNowList')
       .then((data) => {
         this.getNowList = data.data
@@ -80,8 +80,50 @@ export default {
   data () {
     return {
       inv: 2000,
-      PClist: [],
-      getNowList: [],
+      PClist: [
+        {
+          'text': '数据统计',
+          'link': '#',
+          'hot': true
+        },
+        {
+          'text': '数据检测',
+          'link': '#',
+          'hot': true
+        },
+        {
+          'text': '流量分析',
+          'link': '#',
+          'hot': true
+        },
+        {
+          'text': '广告发布',
+          'link': '#',
+          'hot': true
+        }
+      ],
+      getNowList: [
+        {
+          'id': '1',
+          'title': '新闻条目1新闻条目1新闻条目1新闻条目1新闻条目1',
+          'url': '#'
+        },
+        {
+          'id': '2',
+          'title': '新闻条目2新闻条目1新闻条目1新闻条目1新闻条目1',
+          'url': '#'
+        },
+        {
+          'id': '3',
+          'title': '新闻条目3新闻条目1新闻条目1新闻条目1新闻条目1',
+          'url': '#'
+        },
+        {
+          'id': '4',
+          'title': '新闻条目4新闻条目1新闻条目1新闻条目1新闻条目1',
+          'url': '#'
+        }
+      ],
       imglist: [
         {
           id: 1,

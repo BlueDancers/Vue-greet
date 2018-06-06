@@ -7,8 +7,6 @@ import count from '../components/buy/count'
 import forecast from '../components/buy/forecast'
 import analysis from '../components/buy/analysis'
 import issue from '../components/buy/issue'
-import resource from 'vue-resource'
-Vue.use(resource)
 Vue.use(Router)
 
 export default new Router({
