@@ -37,12 +37,7 @@ export default {
   },
   methods: {
     login () {
-      this.$http.get('http://localhost:3003/PClist')
-        .then((data) => {
-          this.$emit('getuser', this.username)
-        }, (error) => {
-          console.log(error)
-        })
+      this.$emit('getuser', this.username)
     },
     gotoregister () {
       this.$emit('gotoregister', 2)
