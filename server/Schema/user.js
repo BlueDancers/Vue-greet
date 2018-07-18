@@ -19,7 +19,10 @@ let Users = mysql.define('user', {
   // 如果指定的表名称本就是复数形式则不变
   freezeTableName: false
 });
-
+// 创建表
+// User.sync() 会创建表并且返回一个 Promise 对象
+// 如果 force = true 则会把存在的表（如果 users 表已存在）先销毁再创建表
+// 默认情况下 forse = false
 Users.sync({
   force: false //设置为fasle 否则会覆盖
 }).then(() => {
@@ -27,7 +30,6 @@ Users.sync({
 })
 
 //创建用户
-//force:true 先销毁再创建表
 let addUSers = async (username, password, number) => {
   return await Users.create({
     user_name: username,
@@ -37,30 +39,17 @@ let addUSers = async (username, password, number) => {
 }
 
 //登录验证
-let userlogin = async (username,password) => {
-  await Users.find({
+let userlogin = async (username) => {
+  return await Users.find({
     where: {
       user_name: username
     }
-  }).then((res)=> {
-    let pass = JSON.parse(JSON.stringify(res)).user_password;//通过用户名获取密码
-    if (password == pass){
-      return true;
-    }else {
-      return false;
-    }
   })
 }
-
 //查看用户
 let lookUser = async () => {
-  await Users.findAll().then((res) => {
-    console.log(JSON.parse(JSON.stringify(res)));
-    return JSON.parse(JSON.stringify(res));
-  })
+  return await Users.findAll()         //返回一个查询的promise对象
 }
-
-
 module.exports = {
   addUSers,
   userlogin,

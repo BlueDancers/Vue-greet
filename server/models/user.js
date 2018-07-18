@@ -11,19 +11,37 @@ let addUsers = async (username,password,number)=> {
 
 //登录
 let userLogin = async (username,password) => {
-  return await user.userlogin(username,password);
+  return await user.userlogin(username).then((res) => {
+    console.log("-----------------------------------------");
+    if(res === null) {
+      return {
+        text: "该用户不存在",
+        message: false
+      }
+    }
+    let pass = JSON.parse(JSON.stringify(res)).user_password; //通过用户名获取密码
+    if (password == pass) {
+      return {
+        text: "登陆成功",
+        message: true
+      }
+    } else {
+      return {
+        text: "密码错误",
+        message: false
+      }
+    }
+  })
 }
 
 //获取当前用户
 let getUsers = async ()=> {
-  
-  
-  console.log(await user.lookUser());
-  console.log("dasdassdasda");
-  //return list;
+ return await user.lookUser().then((res) => {
+   let data = JSON.parse(JSON.stringify(res))
+   return data;
+ })
 }
 
-getUsers()
 module.exports = {
   addUsers,
   userLogin,

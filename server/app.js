@@ -1,25 +1,17 @@
 const koa = require('koa');
+const bodyParser = require('koa-bodyparser')
+const router = require('../server/routes/user')
+const cros = require('koa2-cors')
 const app = new koa();
 
 
-app.use(async (ctx,next)=> {
-  let start = Date.now();
-  for (let index = 0; index < 1000000; index++) {
-    
-  }
-  await next();
-  let end = Date.now();
-  let ms = end- start;
-  console.log(start);
-  console.log(end);
-  ctx.set('X-Response-Time',`${ms}ms`)
-  ctx.body = "koa";
-}).listen(3000);
+app.use(bodyParser())
+app.use(cros())
 
-app.use(async (ctx, next) => {
-  console.log("运行到了这里");
-  const start = Date.now();
-  await next();
-  const ms = Date.now() - start;
-  console.log(`${ctx.method} ${ctx.url} - ${ms}`);
-});
+app.listen(3000,()=> {
+  console.log("[koa] is start!");
+}); 
+
+router.use('/api',router.routes())
+app.use(router.routes())  //注册路由
+

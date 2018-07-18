@@ -5,6 +5,10 @@
   "main": "app.js",
   "dependencies": {
     "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-cors": "0.0.16",
+    "koa-router": "^7.4.0",
+    "koa2-cors": "^2.0.6",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "sequelize": "^4.38.0"
