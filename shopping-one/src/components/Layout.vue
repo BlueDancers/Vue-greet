@@ -33,7 +33,7 @@
     </div>
     <mydialog :show="isShow" @on-close="closeprompt" :onshow="tab">
       <div slot="login">
-        <logfrom @gotoregister="gotoregister" @getuser="getuser"></logfrom>
+        <logfrom @gotoregister="gotoregister"></logfrom>
       </div>
       <div slot="register">
         <register></register>
@@ -75,11 +75,6 @@ export default {
     },
     gotoregister (index) {
       this.tab = index
-    },
-    getuser (index) {
-      this.username = index
-      this.isuser = true
-      this.isShow = false
     },
     closeuser () {
       this.isuser = false

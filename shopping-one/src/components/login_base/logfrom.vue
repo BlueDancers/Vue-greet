@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -37,7 +38,12 @@ export default {
   },
   methods: {
     login () {
-      this.$emit('getuser', this.username)
+      axios.post('http://localhost:3000/api/login',{
+        username: this.username,
+        password: this.password
+      }).then((res) => {
+        console.log(res.data);
+      })
     },
     gotoregister () {
       this.$emit('gotoregister', 2)
