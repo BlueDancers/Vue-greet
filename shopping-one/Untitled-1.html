@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+<input type="text" id="aa"/>*<input type="text" id="cc"/>
+<span id="bb">{{hello}}</span>
+
+<script>
+   var obj = {};
+    Object.defineProperty(obj,'hello',{
+        enumerable: true,
+        configurable: true,
+        get: function() { return document.getElementById('aa').value; },
+        set:function(val){
+            document.getElementById('bb').innerHTML = val*obj.hello2;
+        }
+    });
+   Object.defineProperty(obj,'hello2',{
+       enumerable: true,
+       configurable: true,
+       get: function() { return document.getElementById('cc').value; },
+       set:function(val){
+           document.getElementById('bb').innerHTML = val*obj.hello;
+       }
+   });
+    document.getElementById('aa').onkeyup = function(){
+        obj.hello = this.value;
+    };
+   document.getElementById('cc').onkeyup = function(){
+       obj.hello2 = this.value;
+   };
+    obj.hello = "";
+    obj.hello2 = "";
+</script>
+
+</body>
+</html>
